@@ -19,6 +19,12 @@ import '../app/phone-detail/phone-detail.component.js'
 
 import { AppModule } from './app.module';
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import {downgradeComponent} from "@angular/upgrade/static";
+import {PhoneNameComponent} from "./phone-name.component";
+
+// @ts-ignore
+angular.module('phonecatApp')
+    .directive('phoneName', downgradeComponent({component: PhoneNameComponent}));
 
 platformBrowserDynamic()
     .bootstrapModule(AppModule)
